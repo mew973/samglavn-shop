@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamGlavn Shop | Premium Software</title>
+    <style>
+        /* --- НАСТРОЙКИ ДИЗАЙНА --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0e0e0e; /* Черный фон как у Valary */
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        /* Звездочки на фоне (упрощено) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        /* Шапка */
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo { font-weight: bold; font-size: 24px; letter-spacing: 1px; }
+        
+        /* Главный блок */
+        .hero {
+            padding: 100px 20px;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, #bbb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p { font-size: 20px; color: #888; margin-bottom: 40px; }
+
+        /* КНОПКИ (Розовые как просил) */
+        .btn {
+            background-color: #e63e84; /* Розовый Valary */
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(230, 62, 132, 0.4);
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #ff66c4;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(230, 62, 132, 0.6);
+        }
+
+        /* Сетка товаров */
+        .products {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #e63e84; }
+        .card h3 { margin-top: 0; }
+        .card .price { color: #e63e84; font-weight: bold; font-size: 22px; margin: 15px 0; }
+        
+        .footer {
+            margin-top: 100px;
+            padding: 40px;
+            color: #555;
+            font-size: 14px;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SamGlavn Shop</div>
+        <a href="https://t.me/imya_bota" class="btn" style="padding: 10px 20px; font-size: 14px;">Telegram</a>
+    </header>
+
+    <div class="hero">
+        <h1>Unlock Premium Software</h1>
+        <p>Официальный реселлер. Моментальная автовыдача. Гарантия.</p>
+        <a href="https://t.me/imya_bota" class="btn">ПЕРЕЙТИ В МАГАЗИН</a>
+    </div>
+
+    <div class="products">
+        <div class="card">
+            <h3>🔥 Seliware</h3>
+            <p style="font-size: 14px;">Лучшее решение на рынке. Undetected.</p>
+            <div class="price">от 410 ₽</div>
+            <a href="https://t.me/imya_bota" class="btn" style="width: 80%; text-align: center;">Купить</a>
+        </div>
+
+        <div class="card">
+            <h3>🛡 Spoofer</h3>
+            <p style="font-size: 14px;">Обход бана по железу. Работает везде.</p>
+            <div class="price">299 ₽</div>
+            <a href="https://t.me/imya_bota" class="btn" style="width: 80%; text-align: center;">Купить</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 SamGlavn Shop. All rights reserved.<br>
+        We are not affiliated with games developers.
+    </div>
+
+</body>
+</html>
