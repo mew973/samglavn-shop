@@ -17,12 +17,12 @@
         body {
             margin: 0;
             padding: 0;
-            /* ГЕНЕРАЦИЯ ФОНА КОДОМ (Не картинка, не сломается) */
+            /* ГЕНЕРАЦИЯ ФОНА КОДОМ */
             background-color: var(--bg-color);
             background-image: 
                 linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px; /* Размер клетки сетки */
+            background-size: 40px 40px;
             background-attachment: fixed;
             
             color: var(--text-color);
@@ -31,12 +31,12 @@
             overflow-x: hidden;
         }
 
-        /* Доп. свечение сверху, чтобы было красиво */
+        /* Доп. свечение сверху */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 0%, rgba(188, 19, 254, 0.2), transparent 70%);
+            background: radial-gradient(circle at 50% 0%, rgba(188, 19, 254, 0.15), transparent 70%);
             z-index: -1;
             pointer-events: none;
         }
@@ -50,7 +50,7 @@
             max-width: 1200px;
             margin: 0 auto;
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            background: rgba(15, 12, 41, 0.8);
+            background: rgba(15, 12, 41, 0.85);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
@@ -82,6 +82,7 @@
             transition: 0.3s;
             cursor: pointer;
             border-bottom: 2px solid transparent;
+            display: flex; align-items: center; gap: 6px;
         }
         .nav-btn:hover { 
             color: #fff; 
@@ -164,6 +165,7 @@
             width: 300px;
             text-align: left;
             transition: all 0.3s ease;
+            position: relative;
         }
         .card:hover { 
             transform: translateY(-8px); 
@@ -180,15 +182,28 @@
         .card .desc-short {
             color: #888;
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
         .card .price { 
             color: var(--primary-color);
             font-weight: 800; 
             font-size: 22px; 
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
+        
+        /* Стиль для методов оплаты */
+        .payment-methods {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 10px;
+        }
+
         .btn-card {
             width: 100%;
             display: block;
@@ -287,8 +302,8 @@
         <a href="#" class="logo">SamGlavnShop</a>
         
         <div class="nav-menu">
-            <a class="nav-btn" href="#" data-i18n="reviews_btn">⭐ Отзывы</a>
-            <a class="nav-btn" href="#" data-i18n="support_btn">🛠 Поддержка</a>
+            <a href="https://funpay.com/users/10341315/" target="_blank" class="nav-btn" data-i18n="reviews_btn">⭐ Отзывы</a>
+            <a href="https://discord.com/users/715260145768071269" target="_blank" class="nav-btn" data-i18n="support_btn">🛠 Поддержка</a>
         </div>
         
         <div class="lang-switcher">
@@ -311,6 +326,7 @@
             <h3>Matrix External</h3>
             <div class="desc-short" data-i18n="matrix_short">🧬 Ультимативное решение</div>
             <div class="price">899 ₽ <span style="font-size:14px; color:#aaa; font-weight:400" data-i18n="forever">/ Навсегда</span></div>
+            <div class="payment-methods" data-i18n="payment_methods">💳 СБП | 🪙 Crypto</div>
             <div class="btn-card" onclick="openModal('modal-matrix')" data-i18n="btn_details">Подробнее</div>
         </div>
 
@@ -319,6 +335,7 @@
             <h3>Seliware</h3>
             <div class="desc-short" data-i18n="seliware_short">💉 Лучший инжектор</div>
             <div class="price"><span data-i18n="from">от</span> 410 ₽</div>
+            <div class="payment-methods" data-i18n="payment_methods">💳 СБП | 🪙 Crypto</div>
             <div class="btn-card" style="border-color: var(--secondary-color);" onclick="openModal('modal-seliware')" data-i18n="btn_select_tariff">Выбрать тариф</div>
         </div>
 
@@ -327,6 +344,7 @@
             <h3>Matcha External</h3>
             <div class="desc-short" data-i18n="matcha_short">🍵 Легкость и мощь</div>
             <div class="price">1199 ₽ <span style="font-size:14px; color:#aaa; font-weight:400" data-i18n="forever">/ Навсегда</span></div>
+            <div class="payment-methods" data-i18n="payment_methods">💳 СБП | 🪙 Crypto</div>
             <div class="btn-card" onclick="openModal('modal-matcha')" data-i18n="btn_details">Подробнее</div>
         </div>
     </div>
@@ -407,6 +425,7 @@
                 'matrix_short': '🧬 Ультимативное решение',
                 'seliware_short': '💉 Лучший инжектор',
                 'matcha_short': '🍵 Легкость и мощь',
+                'payment_methods': '💳 СБП | 🪙 Crypto',
                 'forever': '/ Навсегда',
                 'from': 'от',
                 'btn_details': 'Подробнее',
@@ -427,6 +446,7 @@
                 'matrix_short': '🧬 The Ultimate Solution',
                 'seliware_short': '💉 Best Injector',
                 'matcha_short': '🍵 Lightweight Power',
+                'payment_methods': '💳 SBP | 🪙 Crypto',
                 'forever': '/ Lifetime',
                 'from': 'from',
                 'btn_details': 'Details',
