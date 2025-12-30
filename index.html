@@ -6,30 +6,28 @@
     <title>SamGlavn Shop | Premium Cheats</title>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* --- СТИЛИ --- */
-        :root {
-            --primary-color: #00f2ff; /* Голубой */
-            --secondary-color: #bc13fe; /* Фиолетовый */
-            --text-color: #ffffff;
-            --bg-overlay: rgba(9, 9, 12, 0.85); /* Затемнение фона */
-        }
-
+        /* --- ОСНОВНОЙ СТИЛЬ И ФОН --- */
         body {
             margin: 0;
             padding: 0;
-            /* НОВЫЙ ФОН: Абстрактная неоновая сетка (Без людей, без текста) */
-            background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed; 
+            /* Размытый киберпанк город */
+            background: url('https://images.wallpapersden.com/image/download/purple-neon-cyberpunk-city_bWtnZm2UmZqaraWkpJRmbmdlrWZlbWU.jpg') no-repeat center center fixed; 
             background-size: cover;
-            color: var(--text-color);
+            color: #ffffff;
             font-family: 'Exo 2', sans-serif;
             text-align: center;
             overflow-x: hidden;
         }
 
-        .overlay-bg {
+        /* Сетка поверх фона (эффект микросхем/шестиугольников) */
+        .overlay-grid {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg-overlay);
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 16, 16, 0) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-color: rgba(10, 10, 15, 0.85); /* Затемнение */
             z-index: -1;
         }
 
@@ -43,60 +41,26 @@
             margin: 0 auto;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
         .logo { 
             font-weight: 800; 
-            font-size: 26px; 
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
+            font-size: 28px; 
+            color: #ff7eb3; 
+            text-shadow: 0 0 15px rgba(255, 126, 179, 0.6);
+            letter-spacing: 1px;
         }
-
-        /* Кнопка отзывов */
-        .reviews-btn {
+        .nav-link {
             color: #ccc;
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
             transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .reviews-btn:hover { color: #fff; text-shadow: 0 0 10px #fff; }
-
-        /* Переключатель RU | EN */
-        .lang-switcher {
-            display: flex;
-            gap: 10px;
-            font-weight: 800;
-            font-size: 16px;
-            background: rgba(255,255,255,0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-        }
-        .lang-btn {
             cursor: pointer;
-            color: #777;
-            transition: 0.3s;
         }
-        .lang-btn:hover { color: #aaa; }
-        .lang-btn.active {
-            color: #fff;
-            text-shadow: 0 0 10px var(--primary-color);
-        }
-        .divider { color: #555; }
+        .nav-link:hover { color: #fff; text-shadow: 0 0 10px #fff; }
 
         /* ГЛАВНЫЙ БЛОК */
         .hero {
-            padding: 120px 20px 80px;
+            padding: 100px 20px 60px;
         }
         h1 {
             font-size: 52px;
@@ -104,33 +68,41 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             line-height: 1.2;
-            text-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #00f2ff, #bc13fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(188, 19, 254, 0.5));
         }
         p.subtitle { 
             font-size: 22px; 
-            color: #ccc; 
+            color: #aaa; 
             margin-bottom: 40px; 
             font-weight: 400; 
         }
 
+        /* Кнопка FunPay */
         .btn-funpay {
             background: linear-gradient(45deg, #2682ff, #0056b3);
             color: #fff;
-            padding: 16px 45px;
+            padding: 15px 40px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 800;
             font-size: 18px;
-            box-shadow: 0 0 25px rgba(38, 130, 255, 0.5);
+            border: 2px solid #2682ff;
+            box-shadow: 0 0 20px rgba(38, 130, 255, 0.4);
             transition: 0.3s;
             display: inline-block;
         }
         .btn-funpay:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 45px rgba(38, 130, 255, 0.8);
+            box-shadow: 0 0 40px rgba(38, 130, 255, 0.7);
+            background: linear-gradient(45deg, #4da3ff, #2682ff);
         }
 
-        /* ТОВАРЫ */
+        /* СЕТКА ТОВАРОВ */
         .products {
             display: flex;
             justify-content: center;
@@ -141,62 +113,65 @@
             padding: 50px 20px;
         }
         .card {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             padding: 25px;
             width: 320px;
             text-align: left;
             transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
         .card:hover { 
-            transform: translateY(-10px); 
-            border-color: var(--primary-color); 
-            box-shadow: 0 15px 40px rgba(0, 242, 255, 0.15);
+            transform: translateY(-15px); 
+            border-color: #bc13fe; 
+            box-shadow: 0 15px 40px rgba(188, 19, 254, 0.2);
         }
         .card img {
             width: 100%;
-            border-radius: 15px;
+            border-radius: 12px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
         }
         .card h3 { margin: 10px 0 5px; font-size: 26px; }
         .card .desc-short {
-            color: #aaa;
-            font-size: 15px;
-            margin-bottom: 20px;
-            font-weight: 600;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         .card .price { 
-            color: var(--primary-color);
+            color: #fff; 
             font-weight: 800; 
             font-size: 24px; 
-            margin-bottom: 25px;
+            margin-bottom: 20px; 
         }
         .btn-card {
             width: 100%;
             display: block;
             text-align: center;
-            padding: 14px 0;
-            background: transparent;
+            padding: 12px 0;
+            background: rgba(255,255,255,0.1);
             color: #fff;
-            border-radius: 12px;
-            font-weight: 800;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
             transition: 0.3s;
             cursor: pointer;
-            border: 2px solid var(--primary-color);
+            border: 1px solid rgba(255,255,255,0.2);
         }
         .btn-card:hover {
-            background: var(--primary-color);
+            background: #fff;
             color: #000;
-            box-shadow: 0 0 25px rgba(0, 242, 255, 0.5);
         }
 
-        /* МОДАЛЬНЫЕ ОКНА */
+        /* МОДАЛЬНЫЕ ОКНА (Всплывашки) */
         .modal {
-            display: none;
+            display: none; /* Скрыто по умолчанию */
             position: fixed;
             z-index: 1000;
             left: 0; top: 0; width: 100%; height: 100%;
@@ -210,89 +185,78 @@
         .modal.show { display: flex; opacity: 1; }
         
         .modal-content {
-            background: linear-gradient(160deg, #161625, #0a0a12);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            border: 1px solid #333;
             padding: 40px;
-            border-radius: 25px;
-            max-width: 650px;
+            border-radius: 20px;
+            max-width: 600px;
             width: 90%;
             text-align: left;
             position: relative;
-            box-shadow: 0 0 60px rgba(188, 19, 254, 0.1);
+            box-shadow: 0 0 50px rgba(188, 19, 254, 0.15);
         }
         .close-btn {
             position: absolute;
-            top: 20px; right: 30px;
-            color: #aaa; font-size: 35px; font-weight: bold; cursor: pointer; transition: 0.3s;
+            top: 20px; right: 25px;
+            color: #aaa;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
         }
         .close-btn:hover { color: #fff; }
         
-        .modal-title { font-size: 32px; margin-bottom: 25px; color: #fff; }
+        .modal-title { font-size: 32px; margin-bottom: 20px; color: #fff; }
         .modal-desc { 
             font-size: 16px; 
-            line-height: 1.7; 
+            line-height: 1.6; 
             color: #ccc; 
-            margin-bottom: 35px; 
-            border-left: 4px solid var(--secondary-color);
-            padding-left: 20px;
-            background: rgba(255,255,255,0.03);
-            padding: 20px;
-            border-radius: 0 10px 10px 0;
+            margin-bottom: 30px; 
+            border-left: 3px solid #bc13fe;
+            padding-left: 15px;
         }
-        
-        .price-options { display: flex; gap: 20px; flex-wrap: wrap; }
+        .price-options { display: flex; gap: 15px; flex-wrap: wrap; }
         .price-btn {
             flex: 1;
-            padding: 18px;
+            padding: 15px;
             background: transparent;
-            border: 2px solid var(--primary-color);
+            border: 2px solid #00f2ff;
             color: #fff;
             text-align: center;
             text-decoration: none;
-            border-radius: 15px;
+            border-radius: 10px;
+            font-weight: bold;
             transition: 0.3s;
-            display: flex; flex-direction: column; gap: 5px;
         }
         .price-btn:hover {
-            background: var(--primary-color);
+            background: #00f2ff;
             color: #000;
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
         }
-        .price-btn span { font-size: 14px; opacity: 0.8; }
-        .price-btn strong { font-size: 20px; font-weight: 800; }
+        .price-btn span { display: block; font-size: 12px; font-weight: normal; opacity: 0.8; }
+        .price-btn strong { display: block; font-size: 18px; }
 
         .footer {
             margin-top: 80px;
-            padding: 50px;
-            color: #555;
+            padding: 40px;
+            color: #444;
             font-size: 14px;
             border-top: 1px solid rgba(255,255,255,0.05);
-            background: rgba(0,0,0,0.5);
         }
+
     </style>
 </head>
 <body>
 
-    <div class="overlay-bg"></div>
-
-    <header>
-        <div class="header-left">
-            <a href="#" class="logo">SamGlavnShop</a>
-            <a href="https://funpay.com/users/10341315/" target="_blank" class="reviews-btn" data-i18n="reviews_btn">⭐ Отзывы</a>
-        </div>
-        
-        <div class="lang-switcher">
-            <span class="lang-btn active" onclick="changeLanguage('ru')">RU</span>
-            <span class="divider">|</span>
-            <span class="lang-btn" onclick="changeLanguage('en')">EN</span>
-        </div>
+    <div class="overlay-grid"></div> <header>
+        <div class="logo">SamGlavn<span style="color:#fff">Shop</span></div>
+        <a class="nav-link">⭐ Отзывы (Скоро)</a>
     </header>
 
     <div class="hero">
-        <h1 data-i18n="hero_title">Твой геймплей на новом уровне</h1>
-        <p class="subtitle" data-i18n="hero_subtitle">Приватный софт. Моментальная автовыдача. Гарантия.</p>
-        <a href="https://funpay.com/users/10341315/" target="_blank" class="btn-funpay" data-i18n="btn_funpay">Купить на FunPay</a>
+        <h1>Твой геймплей <br><span class="gradient-text">На новом уровне</span></h1>
+        <p class="subtitle">Приватный софт. Моментальная автовыдача. Гарантия.</p>
+        <a href="https://funpay.com/users/10341315/" target="_blank" class="btn-funpay">Купить на FunPay</a>
     </div>
 
     <div class="products">
@@ -300,25 +264,25 @@
         <div class="card">
             <img src="https://github.com/mew973/samglavn-shop/blob/main/Matrix%20waifu.png?raw=true" alt="Matrix Waifu">
             <h3>Matrix External</h3>
-            <div class="desc-short" data-i18n="matrix_short">🧬 Ультимативное решение</div>
-            <div class="price">899 ₽ <span style="font-size:14px; color:#aaa; font-weight:400" data-i18n="forever">/ Навсегда</span></div>
-            <div class="btn-card" onclick="openModal('modal-matrix')" data-i18n="btn_details">Подробнее</div>
+            <div class="desc-short">🧬 Ультимативное решение</div>
+            <div class="price">899 ₽ <span style="font-size:14px; color:#aaa; font-weight:400">/ Навсегда</span></div>
+            <div class="btn-card" onclick="openModal('modal-matrix')">Подробнее</div>
         </div>
 
-        <div class="card" style="border-color: var(--secondary-color);">
+        <div class="card" style="border-color: rgba(188, 19, 254, 0.4);">
             <img src="https://github.com/mew973/samglavn-shop/blob/main/Seli%20waifu.png?raw=true" alt="Seliware Waifu">
             <h3>Seliware</h3>
-            <div class="desc-short" data-i18n="seliware_short">💉 Лучший инжектор</div>
-            <div class="price"><span data-i18n="from">от</span> 410 ₽</div>
-            <div class="btn-card" style="border-color: var(--secondary-color); box-shadow: 0 0 10px rgba(188, 19, 254, 0.2) inset;" onclick="openModal('modal-seliware')" data-i18n="btn_select_tariff">Выбрать тариф</div>
+            <div class="desc-short">💉 Лучший инжектор</div>
+            <div class="price">от 410 ₽</div>
+            <div class="btn-card" style="background: #bc13fe; border:none;" onclick="openModal('modal-seliware')">Выбрать тариф</div>
         </div>
 
         <div class="card">
             <img src="https://github.com/mew973/samglavn-shop/blob/main/Matcha%20waifu.png?raw=true" alt="Matcha Waifu">
-            <h3>Matcha External</h3>
-            <div class="desc-short" data-i18n="matcha_short">🍵 Легкость и мощь</div>
-            <div class="price">1199 ₽ <span style="font-size:14px; color:#aaa; font-weight:400" data-i18n="forever">/ Навсегда</span></div>
-            <div class="btn-card" onclick="openModal('modal-matcha')" data-i18n="btn_details">Подробнее</div>
+            <h3>Matcha Lite</h3>
+            <div class="desc-short">🍵 Легкость и мощь</div>
+            <div class="price">1199 ₽ <span style="font-size:14px; color:#aaa; font-weight:400">/ Навсегда</span></div>
+            <div class="btn-card" onclick="openModal('modal-matcha')">Подробнее</div>
         </div>
     </div>
 
@@ -326,17 +290,17 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-seliware')">&times;</span>
             <h2 class="modal-title">Seliware Executor</h2>
-            <div class="modal-desc" data-i18n="seliware_desc" data-html="true">
+            <div class="modal-desc">
                 Seliware — это быстрый, стабильный и в высшей степени надежный инжектор для Roblox, созданный для плавного запуска скриптов без вылетов и задержек.<br><br>
                 Созданный с упором на простоту и мощь, Seliware обеспечивает точное исполнение UNC/sUNC скриптов. Идеально подходит как для новичков, так и для продвинутых пользователей. Регулярные обновления гарантируют работу на последних патчах игры.
             </div>
             <div class="price-options">
-                <a href="https://t.me/MewShop_SamGlavn_bot" class="price-btn">
-                    <span data-i18n="7_days">7 Дней</span>
+                <a href="https://t.me/SamGlavnShop_bot" class="price-btn">
+                    <span>7 Дней</span>
                     <strong>410 ₽</strong>
                 </a>
-                <a href="https://t.me/MewShop_SamGlavn_bot" class="price-btn" style="border-color: var(--secondary-color);">
-                    <span data-i18n="30_days">30 Дней</span>
+                <a href="https://t.me/SamGlavnShop_bot" class="price-btn" style="border-color: #bc13fe; box-shadow: 0 0 15px rgba(188,19,254,0.3);">
+                    <span>30 Дней</span>
                     <strong>999 ₽</strong>
                 </a>
             </div>
@@ -347,13 +311,13 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-matcha')">&times;</span>
             <h2 class="modal-title">Matcha External</h2>
-            <div class="modal-desc" data-i18n="matcha_desc" data-html="true">
+            <div class="modal-desc">
                 Matcha — это высокопроизводительный внешний инструмент для Roblox, разработанный для боевого преимущества, визуальной разведки и автоматизации.<br><br>
                 Включает в себя: Aimbot, ESP, просмотр скриптов, Fisch AutoFarm и Da Hood silent aim. В отличие от инжекторов, Matcha работает как внешняя программа — она легкая, безопасная и совместима со всеми версиями Windows 10 и 11.
             </div>
             <div class="price-options">
-                <a href="https://t.me/MewShop_SamGlavn_bot" class="price-btn" style="width:100%">
-                    <span data-i18n="license_forever">Лицензия Навсегда</span>
+                <a href="https://t.me/SamGlavnShop_bot" class="price-btn" style="width:100%">
+                    <span>Лицензия Навсегда</span>
                     <strong>1199 ₽</strong>
                 </a>
             </div>
@@ -364,14 +328,13 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('modal-matrix')">&times;</span>
             <h2 class="modal-title">Matrix External</h2>
-            <div class="modal-desc" data-i18n="matrix_desc" data-html="true">
-                Matrix Hub работает на уровне ядра, обеспечивая новый уровень безопасности от потенциальных волн банов.<br><br>
-                Он отлично подходит для таких игр, как Da Hood, Fallen Survival, Trident Survival V3, Phantom Forces, Rivals, Project Delta, Aftermath, Arsenal, Scorched Earth, Bad Business и многих других поддерживаемых игр.<br><br>
-                За такую низкую цену вы точно не ошибетесь с этим экстерналом. Вы определенно отлично проведете время и получите много часов удовольствия, используя его.
+            <div class="modal-desc">
+                Ультимативный внешний софт для кардинального улучшения игрового опыта.<br><br>
+                Сочетает в себе функции Legit и Rage, обеспечивая доминирование в любом режиме. Надежный обход защиты и минимальное потребление ресурсов системы.
             </div>
             <div class="price-options">
-                <a href="https://t.me/MewShop_SamGlavn_bot" class="price-btn" style="width:100%">
-                    <span data-i18n="license_forever">Лицензия Навсегда</span>
+                <a href="https://t.me/SamGlavnShop_bot" class="price-btn" style="width:100%">
+                    <span>Лицензия Навсегда</span>
                     <strong>899 ₽</strong>
                 </a>
             </div>
@@ -383,67 +346,19 @@
     </div>
 
     <script>
-        // Модальные окна
-        function openModal(id) { document.getElementById(id).classList.add('show'); }
-        function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-        window.onclick = function(event) { if (event.target.classList.contains('modal')) event.target.classList.remove('show'); }
-
-        // Переводы
-        const translations = {
-            'ru': {
-                'reviews_btn': '⭐ Отзывы',
-                'hero_title': 'Твой геймплей на новом уровне',
-                'hero_subtitle': 'Приватный софт. Моментальная автовыдача. Гарантия.',
-                'btn_funpay': 'Купить на FunPay',
-                'matrix_short': '🧬 Ультимативное решение',
-                'seliware_short': '💉 Лучший инжектор',
-                'matcha_short': '🍵 Легкость и мощь',
-                'forever': '/ Навсегда',
-                'from': 'от',
-                'btn_details': 'Подробнее',
-                'btn_select_tariff': 'Выбрать тариф',
-                '7_days': '7 Дней',
-                '30_days': '30 Дней',
-                'license_forever': 'Лицензия Навсегда',
-                'seliware_desc': 'Seliware — это быстрый, стабильный и в высшей степени надежный инжектор для Roblox, созданный для плавного запуска скриптов без вылетов и задержек.<br><br>Созданный с упором на простоту и мощь, Seliware обеспечивает точное исполнение UNC/sUNC скриптов. Идеально подходит как для новичков, так и для продвинутых пользователей. Регулярные обновления гарантируют работу на последних патчах игры.',
-                'matcha_desc': 'Matcha — это высокопроизводительный внешний инструмент для Roblox, разработанный для боевого преимущества, визуальной разведки и автоматизации.<br><br>Включает в себя: Aimbot, ESP, просмотр скриптов, Fisch AutoFarm и Da Hood silent aim. В отличие от инжекторов, Matcha работает как внешняя программа — она легкая, безопасная и совместима со всеми версиями Windows 10 и 11.',
-                'matrix_desc': 'Matrix Hub работает на уровне ядра, обеспечивая новый уровень безопасности от потенциальных волн банов.<br><br>Он отлично подходит для таких игр, как Da Hood, Fallen Survival, Trident Survival V3, Phantom Forces, Rivals, Project Delta, Aftermath, Arsenal, Scorched Earth, Bad Business и многих других поддерживаемых игр.<br><br>За такую низкую цену вы точно не ошибетесь с этим экстерналом. Вы определенно отлично проведете время и получите много часов удовольствия, используя его.'
-            },
-            'en': {
-                'reviews_btn': '⭐ Reviews',
-                'hero_title': 'Level Up Your Gameplay',
-                'hero_subtitle': 'Private software. Instant delivery. Guaranteed.',
-                'btn_funpay': 'Buy on FunPay',
-                'matrix_short': '🧬 The Ultimate Solution',
-                'seliware_short': '💉 Best Injector',
-                'matcha_short': '🍵 Lightweight Power',
-                'forever': '/ Lifetime',
-                'from': 'from',
-                'btn_details': 'Details',
-                'btn_select_tariff': 'Select Plan',
-                '7_days': '7 Days',
-                '30_days': '30 Days',
-                'license_forever': 'Lifetime License',
-                'seliware_desc': 'Seliware is a fast, stable, and highly dependable Roblox executor engineered for smooth script execution with minimal crashes, delays, or performance drops.<br><br>Built with a focus on reliability and simplicity, Seliware delivers precise UNC/sUNC execution, instant script handling, and a clean user interface suitable for both beginners and advanced users.',
-                'matcha_desc': 'Matcha is a high-performance external tool for Roblox designed to give players advanced combat assistance, visual intelligence, and automation across dozens of supported games.<br><br>With features such as aimbot, ESP, script viewing, game-specific enhancers, Fisch AutoFarm, and Da Hood silent aim. Unlike executors, Matcha operates externally, making it lightweight, stable, and compatible with all versions of Windows 10 and 11.',
-                'matrix_desc': 'Matrix Hub runs at the kernel level providing another level of safety from potential ban waves.<br><br>It\'s great for games like Da Hood, Fallen Survival, Trident Survival V3, Phantom Forces, Rivals, Project Delta, Aftermath, Arsenal, Scorched Earth, Bad Business and many more fun games supported.<br><br>For the cheap price you really cannot go wrong with this external. You will certainly have a great time and many hours of fun using this.'
+        // Скрипт для открытия/закрытия окон
+        function openModal(id) {
+            document.getElementById(id).classList.add('show');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('show');
+        }
+        
+        // Закрытие при клике мимо окна
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('show');
             }
-        };
-
-        function changeLanguage(lang) {
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`.lang-btn[onclick="changeLanguage('${lang}')"]`).classList.add('active');
-
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    if (element.getAttribute('data-html') === 'true') {
-                        element.innerHTML = translations[lang][key];
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
-                }
-            });
         }
     </script>
 
