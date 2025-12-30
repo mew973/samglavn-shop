@@ -6,7 +6,7 @@
     <title>SamGlavn Shop | Premium Cheats</title>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* --- СТИЛИ --- */
+        /* --- CSS (СТИЛИ) --- */
         :root {
             --primary-color: #00f2ff; /* Голубой неон */
             --secondary-color: #bc13fe; /* Фиолетовый неон */
@@ -17,7 +17,7 @@
         body {
             margin: 0;
             padding: 0;
-            /* ГЕНЕРАЦИЯ ФОНА КОДОМ */
+            /* ГЕНЕРАЦИЯ ФОНА КОДОМ (Надежно и быстро) */
             background-color: var(--bg-color);
             background-image: 
                 linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
@@ -192,7 +192,6 @@
             margin-bottom: 10px;
         }
         
-        /* Стиль для методов оплаты */
         .payment-methods {
             font-size: 13px;
             color: #777;
@@ -302,8 +301,8 @@
         <a href="#" class="logo">SamGlavnShop</a>
         
         <div class="nav-menu">
-            <a href="https://funpay.com/users/10341315/" target="_blank" class="nav-btn" data-i18n="reviews_btn">⭐ Отзывы</a>
-            <a href="https://discord.com/users/715260145768071269" target="_blank" class="nav-btn" data-i18n="support_btn">🛠 Поддержка</a>
+            <a href="https://t.me/samglavn_reviews" target="_blank" class="nav-btn" data-i18n="reviews_btn">⭐ Отзывы</a>
+            <a href="https://t.me/SamGlavn" target="_blank" class="nav-btn" data-i18n="support_btn">🛠 Поддержка</a>
         </div>
         
         <div class="lang-switcher">
@@ -410,11 +409,12 @@
     </div>
 
     <script>
-        // --- JS ЛОГИКА ---
+        // Модалки
         function openModal(id) { document.getElementById(id).classList.add('show'); }
         function closeModal(id) { document.getElementById(id).classList.remove('show'); }
         window.onclick = function(event) { if (event.target.classList.contains('modal')) event.target.classList.remove('show'); }
 
+        // Переводы
         const translations = {
             'ru': {
                 'reviews_btn': '⭐ Отзывы',
